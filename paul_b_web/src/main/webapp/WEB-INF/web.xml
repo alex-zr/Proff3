@@ -4,4 +4,14 @@
 
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
+  <servlet>
+  	<servlet-name>ServletExample</servlet-name>
+  	<display-name>ServletExample</display-name>
+  	<description></description>
+  	<servlet-class>ua.kiev.prog.web.ServletExample</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>ServletExample</servlet-name>
+  	<url-pattern>/ServletExample</url-pattern>
+  </servlet-mapping>
 </web-app>
