@@ -28,6 +28,30 @@
 		<module>dima_parkhomenko</module>
 		<module>bohdan_shuba_web</module>
 	</modules>
+    <groupId>proff</groupId>
+    <artifactId>proff3</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>proff3_examples</module>
+        <module>vladimir_kolyada</module>
+        <module>misha_kaplan</module>
+        <module>mik_tarnavskiy</module>
+        <module>paul_b</module>
+        <module>bohdan_shuba</module>
+        <module>alexandr_lisovolik</module>
+        <module>eduard_tymchenko</module>
+        <module>liliia_yarmolova</module>
+        <module>proff3_examples_web</module>
+        <module>paul_b_web</module>
+        <module>liliia_yarmolova_web</module>
+        <module>roman_chudnenkov</module>
+        <module>vladimir_kolyada_web</module>
+        <module>iryna_hrybanova</module>
+        <module>paul_b_web</module>
+        <module>proff3_examples_web</module>
+        <module>misha_kaplan_web</module>
+    </modules>
 
 	<properties>
 		<junit.version>4.12</junit.version>
