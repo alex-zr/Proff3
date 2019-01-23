@@ -9,6 +9,7 @@
 	<modules>
 		<module>proff3_examples</module>
 		<module>vladimir_kolyada</module>
+		<module>vladimir_kolyada_web</module>
 		<module>misha_kaplan</module>
 		<module>mik_tarnavskiy</module>
 		<module>paul_b</module>
@@ -18,6 +19,13 @@
 		<module>liliia_yarmolova</module>
 		<module>roman_chudnenkov</module>
 		<module>eduard_tymchenko_web</module>
+		<module>paul_b_web</module>
+		<module>liliia_yarmolova_web</module>
+		<module>vladimir_kolyada_web</module>
+		<module>iryna_hrybanova</module>
+		<module>iryna_hrybanova_web</module>
+		<module>proff3_examples_web</module>
+		<module>dima_parkhomenko</module>
 	</modules>
 
 	<properties>
