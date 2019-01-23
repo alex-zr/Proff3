@@ -14,6 +14,6 @@ public class ServletExample extends HttpServlet {
     public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setContentType("text/html");
         resp.getWriter().println("<h2>Hello from servlet</h2>");
-        
+
     }
 }
