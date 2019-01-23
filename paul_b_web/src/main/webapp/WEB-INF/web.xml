@@ -8,7 +8,7 @@
   	<servlet-name>ServletExample</servlet-name>
   	<display-name>ServletExample</display-name>
   	<description></description>
-  	<servlet-class>ua.kiev.prog.web.ServletExample</servlet-class>
+  	<servlet-class>ua.kiev.prog.prog.web.ServletExample</servlet-class>
   </servlet>
   <servlet-mapping>
   	<servlet-name>ServletExample</servlet-name>
