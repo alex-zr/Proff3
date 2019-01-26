@@ -26,6 +26,8 @@
         <module>proff3_examples_web</module>
         <module>dima_parkhomenko</module>
         <module>misha_kaplan_web</module>
+        <module>proff3_anton_kucherenko_web</module>
+        <module>proff3_anton_kucherenko</module>
     </modules>
 
     <properties>

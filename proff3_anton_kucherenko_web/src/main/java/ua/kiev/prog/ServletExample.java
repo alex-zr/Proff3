@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(urlPatterns = "/serv") // servlet address part
+@WebServlet(urlPatterns = "/serv")
 
 public class ServletExample extends HttpServlet {
 
