@@ -10,23 +10,27 @@ import java.io.IOException;
 
 @WebServlet(name = "HelloServlet", urlPatterns = "/hello")
 public class HelloServlet extends HttpServlet {
-    protected void doGet(HttpServletRequest request,
-                         HttpServletResponse response)
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         HttpSession session = request.getSession(false);
-        if (session != null) {
+        if (session != null){
             Object userId = session.getAttribute("userId");
-        } else {
-            // AUTH
+        }else{
             String nameParam = request.getParameter("login");
             String passParam = request.getParameter("password");
-
         }
+        String nameParas = request.getParameter("login");
+        String passParam = request.getParameter("password");
 
         request.getSession();
-        session.setAttribute("userId", 13);
+        session.setAttribute("useId", 13);
 
         request.setAttribute("userName", "Goron");
-        request.getRequestDispatcher("/index.jsp").forward(request, response);
+        //request.getRequestDispatcher("/index.jsp").forward();
+
+
+        response.getWriter().print(nameParas = ": " + passParam);
+
     }
 }
