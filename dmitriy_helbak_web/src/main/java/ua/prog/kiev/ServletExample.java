@@ -1,4 +1,4 @@
-package ua.kiev.prog.prog;
+package ua.prog.kiev;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,7 +10,9 @@ import java.io.IOException;
 @WebServlet(urlPatterns = "/serv")
 public class ServletExample extends HttpServlet {
     @Override
-    public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    public void doGet(HttpServletRequest req, HttpServletResponse resp)
+            throws ServletException, IOException {
+        resp.setContentType("text/html");
         resp.getWriter().println("<h2>Hello from Servlet</h2>");
     }
 }

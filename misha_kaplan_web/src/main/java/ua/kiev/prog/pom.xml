@@ -26,6 +26,7 @@
 		<module>iryna_hrybanova_web</module>
 		<module>proff3_examples_web</module>
 		<module>dima_parkhomenko</module>
+		<module>bohdan_shuba_web</module>
 	</modules>
     <groupId>proff</groupId>
     <artifactId>proff3</artifactId>
