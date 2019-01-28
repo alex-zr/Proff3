@@ -1,4 +1,4 @@
-package ua.kiev.prog.prog;
+package ua.kiev.prog;
 
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
