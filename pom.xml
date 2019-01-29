@@ -9,12 +9,12 @@
     <modules>
         <module>proff3_examples</module>
         <module>vladimir_kolyada</module>
-        <module>vladimir_kolyada_web</module>
         <module>misha_kaplan</module>
         <module>mik_tarnavskiy</module>
         <module>paul_b</module>
         <module>bohdan_shuba</module>
-        <module>alexandr_lisovolik</module>
+		<module>bohdan_shuba_web</module>
+		<module>alexandr_lisovolik</module>
         <module>eduard_tymchenko</module>
         <module>liliia_yarmolova</module>
         <module>roman_chudnenkov</module>
@@ -26,8 +26,9 @@
         <module>iryna_hrybanova_web</module>
         <module>proff3_examples_web</module>
         <module>dima_parkhomenko</module>
-        <module>bohdan_shuba_web</module>
         <module>misha_kaplan_web</module>
+        <module>proff3_anton_kucherenko_web</module>
+        <module>proff3_anton_kucherenko</module>
     </modules>
 
 	<properties>
