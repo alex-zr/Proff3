@@ -1,4 +1,4 @@
-<%@ page import="java.util.Date" %>
+<%@ page import="java.util.Date" isELIgnored="false" %>
 <html>
     <body>
         <h2>Hello Proff3</h2>

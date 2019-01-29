@@ -18,12 +18,15 @@ public class AnketaServlet extends HttpServlet {
     static final int QUESTION_2_NO = 3;
 
     static final String TEMPLATE = "<html>" +
-            "<head><title>Prog.kiev.ua</title></head>" +
+            "<head><title>Anketa statistics</title></head>" +
             "<body><h1>%s</h1></body></html>";
 
     final int[] results = new int[4];
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+
+        final String name = request.getParameter("name");
 
         final String q1 = request.getParameter("question1");
         final String q2 = request.getParameter("question2");
@@ -34,8 +37,24 @@ public class AnketaServlet extends HttpServlet {
         results[idx1]++;
         results[idx2]++;
 
-        String res = "<p> Question 1: yes = " + results[QUESTION_1_YES] + ", no =  " + results[QUESTION_1_NO] + "</p>";
-        res += "<p>Question 2: yes = " + results[QUESTION_2_YES] + ", no =  " + results[QUESTION_2_NO] + "</p>";
+        int num = (int) '"';
+
+        String res = name+", thank you for your answers.";
+        res += "<p> Below you can see the total answers statistics. </p>";
+        res += "<p> Question 1: yes = " + results[QUESTION_1_YES] + ", no =  " + results[QUESTION_1_NO] + "</p>";
+        res += "<p> Question 2: yes = " + results[QUESTION_2_YES] + ", no =  " + results[QUESTION_2_NO] + "</p>";
+
+        if (q1.equals("yes")) {
+            res += "<hr> " +
+                    "<p> <h1>Java is the best choice Bro!!! </h1></p>" +
+                    "<img src=" + (char) num + "https://media1.tenor.com/images/51248c5358a46490c4811f51acda5d56/tenor.gif?itemid=4718552" + (char) num + " alt= bro!!!>";
+        }else{
+            res += "<hr> " +
+                    "<p> <h1>What does it mean you don't like Java? </h1></p>" +
+                    "<img src=" + (char) num + "http://img.1001mem.ru/posts_temp/17-03-31/3899726.jpg" + (char) num + " alt= no bro!!!>";
+
+        }
+
 
         response.setContentType("text/html");
         response.getWriter().println(String.format(TEMPLATE, res));
