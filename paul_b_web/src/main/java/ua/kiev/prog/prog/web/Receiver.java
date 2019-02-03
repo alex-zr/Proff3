@@ -14,13 +14,13 @@ import javax.ws.rs.core.MediaType;
  * Servlet implementation class ServletExample
  */
 @WebServlet(urlPatterns = "/serv")
-public class ServletExample extends HttpServlet {
+public class Receiver extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ServletExample() {
+    public Receiver() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -30,6 +30,10 @@ public class ServletExample extends HttpServlet {
 	 */
 	public void init(ServletConfig config) throws ServletException {
 		// TODO Auto-generated method stub
+		int[] a = new int[10];
+		for (int i : a) {
+			
+		}
 	}
 
 	/**
@@ -40,7 +44,8 @@ public class ServletExample extends HttpServlet {
 		response.setContentType(MediaType.TEXT_HTML);
 		String htmlString = "<h2>Hello from servlet</h2><br>";
 		response.getWriter().append(htmlString);
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		response.getWriter().append("Served at: ").append(request.getContextPath()).append(" with ")
+		.append(this.getClass().getName());
 	}
 
 	/**
