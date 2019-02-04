@@ -1,4 +1,4 @@
-package ua.kiev.prog.prog;
+package ua.kiev.prog;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

@@ -1,4 +1,4 @@
-package ua.kiev.prog.prog.session1;
+package ua.kiev.prog.session1;
 
 import java.util.Arrays;
 import java.util.stream.Stream;

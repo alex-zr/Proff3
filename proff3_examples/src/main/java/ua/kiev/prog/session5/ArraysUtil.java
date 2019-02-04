@@ -1,7 +1,6 @@
-package ua.kiev.prog.prog.session5;
+package ua.kiev.prog.session5;
 
 // TDD
-import jdk.internal.jline.internal.InputStreamReader;
 
 import java.io.BufferedReader;
 import java.util.Arrays;
@@ -11,6 +10,9 @@ import java.util.stream.Stream;
 public class ArraysUtil {
 
     private BufferedReader reader;
+
+    public ArraysUtil() {
+    }
 
     public ArraysUtil(BufferedReader reader) {
         this.reader = reader;

@@ -1,4 +1,4 @@
-package ua.kiev.prog.prog.session5;
+package ua.kiev.prog.session5;
 
 
 public class ArraysUtilTest {
@@ -12,7 +12,7 @@ public class ArraysUtilTest {
     }
 
     public void testGetArraySumSuccess() {
-        ArraysUtil module = new ArraysUtil();
+        ArraysUtil module = new ArraysUtil(null);
 
         int actualResuls = module.getArraySum(new int[]{1, 2, 3, 4});
         int expectedResult = 10;

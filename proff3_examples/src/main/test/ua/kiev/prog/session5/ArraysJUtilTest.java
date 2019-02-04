@@ -1,4 +1,4 @@
-package ua.kiev.prog.prog.session5;
+package ua.kiev.prog.session5;
 
 
 import org.junit.Before;
