@@ -24,7 +24,7 @@ public class HelloServlet extends HttpServlet {
         }
 
         request.getSession();
-        //session.setAttribute("userId", 13);
+        session.setAttribute("userId", 13);
 
         request.setAttribute("userName", "Goron");
         request.getRequestDispatcher("/index.jsp").forward(request, response);
