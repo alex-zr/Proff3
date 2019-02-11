@@ -1,5 +1,8 @@
 package ua.kiev.prog.jpa.sample2;
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -10,6 +13,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+@Data
+@NoArgsConstructor
 @Entity
 @Table(name = "Clients")
 public class Client {
@@ -19,50 +24,19 @@ public class Client {
 
     @Column(name = "name", nullable = false)
     private String name;
+    private String surname;
+    private String email;
+    private String phone;
     private int age;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "group_id")
     private Group group;
 
-    public Client() {
-    }
-
-    public Client(String name, int age) {
+    public Client(String name, int age, String phone) {
         this.name = name;
         this.age = age;
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
-
-    public Group getGroup() {
-        return group;
-    }
-
-    public void setGroup(Group group) {
-        this.group = group;
+        this.phone = phone;
     }
 
     @Override

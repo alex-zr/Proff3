@@ -21,6 +21,7 @@ public class SimpleClient {
     private Integer age;
 
     public SimpleClient() {
+
     }
 
     public SimpleClient(String name, int age) {
