@@ -8,10 +8,10 @@
     <input type="password" name="password" ><br>
     <input type="submit" value="Login"><br>
 </form>
-<%
-    Date date = new Date();
-    out.println(date);
-%>
+    <%
+        Date date = new Date();
+        out.println(date);
+    %>
 <br>
 <%=
     1 + ++gl +global
