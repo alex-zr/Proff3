@@ -3,6 +3,7 @@ package ua.kiev.prog.jpa.sample2;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import java.util.*;
 
 public class App {
     public static void main( String[] args ) {
@@ -49,15 +50,15 @@ public class App {
                 return;
             }
             for (Client c : group1.getClients())
-                System.out.println("Client :" + c + " from " + c.getGroup().getName());
+                //System.out.println("Client :" + c + " from " + c.getGroup().getName());
 
             group2 = em.find(Group.class, gid2);
             if (group2 == null) {
-                System.out.println("Course #2 not found error!");
+                //System.out.println("Course #2 not found error!");
                 return;
             }
             for (Client c : group2.getClients())
-                System.out.println("Client :" + c + " from " + c.getGroup().getName());
+                //System.out.println("Client :" + c + " from " + c.getGroup().getName());
 
             // #3
             System.out.println("------------------ #3 ------------------");
@@ -69,8 +70,11 @@ public class App {
                 return;
             }
 
-            System.out.print(client);
-            System.out.println(" from " + client.getGroup());
+            //System.out.print(client);
+            //System.out.println(" from " + client.getGroup());
+            List<Group> groups = new ArrayList<>();
+            groups = em.createQuery("SELECT c FROM Group c", Group.class).getResultList();
+            System.out.println(groups);
         } finally {
             em.close();
             emf.close();
