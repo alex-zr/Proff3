@@ -16,6 +16,7 @@ public class App {
             long gid1, gid2;
 
             // #1
+
             System.out.println("------------------ #1 ------------------");
 
             for (int i = 0; i < 10; i++) {
@@ -24,6 +25,7 @@ public class App {
             }
             for (int i = 0; i < 5; i++) {
                 client = new Client("Name" + i, i, String.valueOf(i));
+                client.setGroup(null);
                 group2.addClient(client);
             }
 //            group = em.find(Group.class, 1L);
