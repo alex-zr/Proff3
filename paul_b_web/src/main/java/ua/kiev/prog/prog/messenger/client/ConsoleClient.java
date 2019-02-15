@@ -8,8 +8,8 @@ import ua.kiev.prog.prog.messenger.model.Message;
 
 public class ConsoleClient {
 	Gson gson = new GsonBuilder().setPrettyPrinting().create();
-	private int clientID = 11;
-	private int to = 0;
+	private String clientID = "11";
+	private String to = "server";
 	String url = "http://localhost:8080/paul_b_web/ServletExample";
 	public static void main(String[] args) {
 		
@@ -24,6 +24,5 @@ public class ConsoleClient {
 		Message message = new Message(clientID, to, text);
 		String json = gson.toJson(message);
 		System.out.println(json);
-		
 	}
 }

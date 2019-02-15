@@ -13,7 +13,7 @@ import javax.ws.rs.core.MediaType;
 /**
  * Servlet implementation class ServletExample
  */
-@WebServlet(urlPatterns = "/serv")
+@WebServlet(urlPatterns = "/serv/*")
 public class Receiver extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
