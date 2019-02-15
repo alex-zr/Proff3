@@ -3,26 +3,29 @@ package ua.kiev.prog.jpa.sample2;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "Groups")
 public class Group {
     @Id
     @GeneratedValue
-    private long id;
+    private Long id;
 
     @Column(name = "name", nullable = false)
     private String name;
 
-    @OneToMany(mappedBy = "group", cascade = {CascadeType.PERSIST, CascadeType.MERGE})
-    private List<Client> clients = new ArrayList<>();
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "group",
+            cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    private Set<Client> clients = new HashSet<>();
 
     public Group() {
     }
@@ -36,8 +39,8 @@ public class Group {
         clients.add(client);
     }
 
-    public List<Client> getClients() {
-        return Collections.unmodifiableList(clients);
+    public Set<Client> getClients() {
+        return Collections.unmodifiableSet(clients);
     }
 
     public long getId() {

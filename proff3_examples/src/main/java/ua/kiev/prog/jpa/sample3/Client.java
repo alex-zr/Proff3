@@ -11,7 +11,9 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "Clients")
@@ -30,7 +32,7 @@ public class Client {
             name = "ClientCourse",
             joinColumns = {@JoinColumn(name = "cli_id", referencedColumnName = "id")},
             inverseJoinColumns = {@JoinColumn(name = "course_id", referencedColumnName = "id")})
-    List<Course> courses = new ArrayList<>();
+    Set<Course> courses = new HashSet<>();
 
     public Client() {
     }
@@ -47,8 +49,8 @@ public class Client {
             course.clients.add(this);
     }
 
-    public List<Course> getCourses() {
-        return Collections.unmodifiableList(courses);
+    public Set<Course> getCourses() {
+        return Collections.unmodifiableSet(courses);
     }
 
     public long getId() {

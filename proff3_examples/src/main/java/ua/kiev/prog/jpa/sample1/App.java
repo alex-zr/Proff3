@@ -124,7 +124,7 @@ public class App {
 
         SimpleClient client = null;
         try {
-            Query query = em.createQuery("SELECT c FROM SimpleClient c " +
+            Query query = em.createQuery("FROM SimpleClient c " +
                     "WHERE c.name = :name", SimpleClient.class);
             query.setParameter("name", name);
             client = (SimpleClient) query.getSingleResult();

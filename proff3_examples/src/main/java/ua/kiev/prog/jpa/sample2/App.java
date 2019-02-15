@@ -8,6 +8,7 @@ public class App {
     public static void main( String[] args ) {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("JPAExample2");
         EntityManager em = emf.createEntityManager();
+        Group group = null;
         try {
             Group group1 = new Group("Course-1");
             Group group2 = new Group("Course-2");
@@ -15,31 +16,38 @@ public class App {
             long gid1, gid2;
 
             // #1
+
             System.out.println("------------------ #1 ------------------");
 
             for (int i = 0; i < 10; i++) {
-                client = new Client("Name" + i, i);
+                client = new Client("Name" + i, i, String.valueOf(i));
                 group1.addClient(client);
             }
             for (int i = 0; i < 5; i++) {
-                client = new Client("Name" + i, i);
+                client = new Client("Name" + i, i, String.valueOf(i));
+                client.setGroup(null);
                 group2.addClient(client);
             }
+//            group = em.find(Group.class, 1L);
+//            System.out.println(group);
 
-            em.getTransaction().begin();
             try {
+                em.getTransaction().begin();
                 em.persist(group1); // save groups with clients
                 em.persist(group2);
                 em.getTransaction().commit();
 
-                System.out.println("New group id #1: " + (gid1 = group1.getId()));
-                System.out.println("New group id #2: " + (gid2 = group2.getId()));
+                //System.out.println("New group id #1: " + (gid1 = group1.getId()));
+                //System.out.println("New group id #2: " + (gid2 = group2.getId()));
+
             } catch (Exception ex) {
+                System.err.println(ex);
                 em.getTransaction().rollback();
                 return;
             }
 
             // #2
+/*
             System.out.println("------------------ #2 ------------------");
             em.clear();
 
@@ -70,10 +78,12 @@ public class App {
             }
 
             System.out.print(client);
-            System.out.println(" from " + client.getGroup());
+            System.out.println(" from " + client.getGroup());*/
         } finally {
             em.close();
             emf.close();
         }
+//        System.out.println(group);
+//        group.getClients().forEach(System.out::println);
     }
 }

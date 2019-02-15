@@ -12,7 +12,9 @@ import javax.persistence.Table;
 import javax.persistence.Transient;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "Courses")
@@ -32,7 +34,7 @@ public class Course {
     private String note;
 
     @ManyToMany(mappedBy = "courses", cascade = CascadeType.ALL)
-    List<Client> clients = new ArrayList<>();
+    Set<Client> clients = new HashSet<>();
 
     public Course() {
     }
@@ -48,8 +50,8 @@ public class Course {
             client.courses.add(this);
     }
 
-    public List<Client> getClients() {
-        return Collections.unmodifiableList(clients);
+    public Set<Client> getClients() {
+        return Collections.unmodifiableSet(clients);
     }
 
     public long getId() {
