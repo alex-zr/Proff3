@@ -34,7 +34,7 @@ public class MyController1 {
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public String onLogin(Model model,
-                          @RequestParam String login,
+                          @RequestParam("login") String login,
                           @RequestParam String password,
                           HttpServletRequest request) {
         String pass = map.get(login);

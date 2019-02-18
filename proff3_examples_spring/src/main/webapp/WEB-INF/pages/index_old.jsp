@@ -5,7 +5,7 @@
 </head>
 <body>
 <div align="center">
-    <form action="/proff1_examples_spring_war_exploded/login" method="POST">
+    <form action="/login" method="POST">
         Login: <input type="text" name="login"><br>
         Password: <input type="password" name="password"><br>
         <input type="submit"/>
