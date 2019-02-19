@@ -30,6 +30,9 @@
         <module>misha_kaplan_web</module>
         <module>proff3_anton_kucherenko_web</module>
         <module>proff3_anton_kucherenko</module>
+        <module>dmitriy_helbak</module>
+        <module>dmitriy_helbak_web</module>
+        <module>dmitriy_helbak_spring</module>
     </modules>
 
 	<properties>
