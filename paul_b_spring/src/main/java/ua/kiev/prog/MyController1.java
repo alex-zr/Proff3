@@ -22,7 +22,7 @@ public class MyController1 {
         map.put("user2", "password2");
     }
 
-    //@RequestMapping("/")
+    @RequestMapping("/")
     public String index() {
         return "index_old";
     }
@@ -41,7 +41,7 @@ public class MyController1 {
 
         model.addAttribute("login", login);
         if (password.equals(pass)) {
-            model.addAttribute("message", map);
+            model.addAttribute("message", "Success");
         } else {
             model.addAttribute("message", "Failure");
         }

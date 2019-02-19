@@ -1,11 +1,8 @@
-<%@ page import="java.util.Date"
-
-
-%>
+<%@ page import="java.util.Date" isELIgnored="false" %>
 <html>
     <body>
         <h2>Hello Proff3</h2>
-        <a href="http://localhost:8080/serv">ServletExample</a>
+        <a href="/serv">ServletExample</a>
 
         <form action="/hello" method="get">
             <input type="text" name="login" value="Zurab"/><br/>
