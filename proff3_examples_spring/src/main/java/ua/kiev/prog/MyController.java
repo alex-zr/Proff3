@@ -6,39 +6,46 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.zip.ZipInputStream;
+import java.util.zip.ZipOutputStream;
 
 @Controller
 public class MyController {
 
     private Map<Long, byte[]> photos = new ConcurrentHashMap<>();
 
-    //@RequestMapping("/")
+    @RequestMapping("/")
     public String onIndex() {
         return "index";
     }
 
     @RequestMapping(value = "/add_photo", method = RequestMethod.POST)
     public String onAddPhoto(Model model, @RequestParam MultipartFile photo) {
-        if (photo.isEmpty())
-            throw new PhotoErrorException();
+        if (photo.isEmpty()) {
+            throw new PhotoErrorException("Photo is empty");
+        }
 
         try {
             long id = System.currentTimeMillis();
+            //ZipOutputStream zipOutputStream = new ZipOutputStream(new ByteArrayOutputStream());
             photos.put(id, photo.getBytes());
 
             model.addAttribute("photo_id", id);
             return "result";
         } catch (IOException e) {
-            throw new PhotoErrorException();
+            throw new PhotoErrorException("Error");
         }
     }
 
@@ -58,6 +65,11 @@ public class MyController {
             throw new PhotoNotFoundException();
         else
             return "index";
+    }
+
+    @ExceptionHandler(Exception.class)
+    public String error() {
+        return "error";
     }
 
     private ResponseEntity<byte[]> photoById(long id) {
