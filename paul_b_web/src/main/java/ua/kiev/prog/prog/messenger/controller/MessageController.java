@@ -17,6 +17,7 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.JsonSyntaxException;
 
 import ua.kiev.prog.prog.messenger.model.Message;
+import ua.kiev.prog.prog.messenger.model.Packet;
 import ua.kiev.prog.prog.messenger.service.MessageService;
 
 /**
@@ -60,13 +61,15 @@ public class MessageController extends HttpServlet {
 		String requestData = request.getReader().lines().collect(Collectors.joining());
 
 		try {
-			Message message = gson.fromJson(requestData, Message.class);
-			messageService.receive(message);
+			Packet packet = gson.fromJson(requestData, Packet.class);
+			for (Message message : packet.getMessages()) {
+				messageService.receive(message);
+			}
+			
 //			response.getWriter().append(message.toString());
 			
-			String jsonResponce = gson.toJson(messageService.deliver(message.getTo()));
-			
-			response.getWriter().append(jsonResponce);
+			String jsonResponse = gson.toJson(messageService.deliver(packet.getFrom()));
+			response.getWriter().append(jsonResponse);
 		} catch (JsonSyntaxException e) {
 			response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
 		}
