@@ -30,6 +30,7 @@
         <module>misha_kaplan_web</module>
         <module>proff3_anton_kucherenko_web</module>
         <module>proff3_anton_kucherenko</module>
+        <module>proff3_anton_kucherenko_spring</module>
     </modules>
 
 	<properties>
