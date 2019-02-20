@@ -24,7 +24,7 @@ public class Main {
     public static void main(String[] args) {
         Connection connection = null;
         try {
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/mydb",
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/flats_db",
                     "root", "root");
             Statement stmt = connection.createStatement();
             ResultSet resultSet = stmt.executeQuery("SELECT id, name, group_id, email FROM Clients");
