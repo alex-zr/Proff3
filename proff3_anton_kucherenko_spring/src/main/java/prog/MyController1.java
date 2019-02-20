@@ -23,7 +23,7 @@ public class MyController1 {
         map.put("user2", "password2");
     }
 
-    @RequestMapping("/")
+    //@RequestMapping("/")
     public String index() {
         return "index_old";
     }
