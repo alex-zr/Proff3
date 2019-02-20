@@ -1,6 +1,6 @@
 package ua.kiev.prog.web;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
@@ -15,15 +15,16 @@ import org.springframework.web.bind.annotation.RequestParam;
 import ua.kiev.prog.domain.Contact;
 import ua.kiev.prog.domain.Group;
 import ua.kiev.prog.service.ContactService;
+import ua.kiev.prog.service.ContactServiceImpl;
 
 import java.util.List;
 
 @Controller
+@AllArgsConstructor
 public class MyController {
     static final int DEFAULT_GROUP_ID = -1;
     static final int ITEMS_PER_PAGE = 6;
 
-    @Autowired
     private ContactService contactService;
 
     @RequestMapping("/")
