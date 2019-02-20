@@ -1,23 +1,20 @@
 package ua.kiev.prog;
 
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
-import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
-import org.springframework.context.annotation.Bean;
 import ua.kiev.prog.domain.Contact;
 import ua.kiev.prog.domain.Group;
-import ua.kiev.prog.service.ContactService;
+import ua.kiev.prog.service.ContactServiceImpl;
 
 @SpringBootApplication
 @AllArgsConstructor
 public class Application implements ApplicationRunner {
 
-    private ContactService contactService;
+    private ContactServiceImpl contactService;
 
     public static void main(String[] args) {
         ConfigurableApplicationContext context = SpringApplication.run(Application.class, args);
