@@ -4,6 +4,8 @@ import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import ua.kiev.prog.dao.ContactRepository;
 import ua.kiev.prog.dao.GroupRepository;
@@ -40,7 +42,7 @@ public class ContactServiceImpl implements ContactService {
     }
 
     @Override
-    @Transactional(readOnly=true)
+    @Transactional(propagation = Propagation.NEVER, isolation = Isolation.READ_COMMITTED, readOnly=true)
     public List<Group> findGroups() {
         return groupRepository.findAll();
     }
