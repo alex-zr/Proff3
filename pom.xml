@@ -40,7 +40,8 @@
         <module>proff3_anton_kucherenko</module>
         <module>proff3_anton_kucherenko_spring</module>
     	<module>paul_b_spring</module>
-  </modules>
+		<module>vladimir_kolyada_boot</module>
+	</modules>
 
 	<properties>
 		<junit.version>4.12</junit.version>
