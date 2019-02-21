@@ -18,7 +18,7 @@
 		<module>proff3_examples_web</module>
 		<module>proff3_examples_spring</module>
 		<module>proff3_examples_boot</module>
-        <module>vladimir_kolyada</module>
+        	<module>vladimir_kolyada</module>
 		<module>vladimir_kolyada_web</module>
 		<module>vladimir_kolyada_boot</module>
 		<module>misha_kaplan</module>
