@@ -19,28 +19,28 @@
 		<module>proff3_examples_spring</module>
 		<module>proff3_examples_boot</module>
         <module>vladimir_kolyada</module>
-        <module>misha_kaplan</module>
-        <module>mik_tarnavskiy</module>
-        <module>paul_b</module>
-        <module>bohdan_shuba</module>
+		<module>vladimir_kolyada_web</module>
+		<module>vladimir_kolyada_boot</module>
+		<module>misha_kaplan</module>
+		<module>mik_tarnavskiy</module>
+		<module>paul_b</module>
+		<module>bohdan_shuba</module>
 		<module>bohdan_shuba_web</module>
 		<module>alexandr_lisovolik</module>
-        <module>eduard_tymchenko</module>
-        <module>liliia_yarmolova</module>
-        <module>roman_chudnenkov</module>
-        <module>eduard_tymchenko_web</module>
-        <module>paul_b_web</module>
-        <module>liliia_yarmolova_web</module>
-        <module>vladimir_kolyada_web</module>
-        <module>iryna_hrybanova</module>
-        <module>iryna_hrybanova_web</module>
-        <module>dima_parkhomenko</module>
-        <module>misha_kaplan_web</module>
-        <module>proff3_anton_kucherenko_web</module>
-        <module>proff3_anton_kucherenko</module>
-        <module>proff3_anton_kucherenko_spring</module>
-    	<module>paul_b_spring</module>
-		<module>vladimir_kolyada_boot</module>
+		<module>eduard_tymchenko</module>
+		<module>liliia_yarmolova</module>
+		<module>roman_chudnenkov</module>
+		<module>eduard_tymchenko_web</module>
+		<module>paul_b_web</module>
+		<module>liliia_yarmolova_web</module>
+		<module>iryna_hrybanova</module>
+		<module>iryna_hrybanova_web</module>
+		<module>dima_parkhomenko</module>
+		<module>misha_kaplan_web</module>
+		<module>proff3_anton_kucherenko_web</module>
+		<module>proff3_anton_kucherenko</module>
+		<module>proff3_anton_kucherenko_spring</module>
+		<module>paul_b_spring</module>
 	</modules>
 
 	<properties>

@@ -20,6 +20,7 @@
                             <li><button type="button" id="add_contact" class="btn btn-default navbar-btn">Add Contact</button></li>
                             <li><button type="button" id="add_group" class="btn btn-default navbar-btn">Add Group</button></li>
                             <li><button type="button" id="delete_contact" class="btn btn-default navbar-btn">Delete Contact</button></li>
+                            <li><button type="button" id="edit_contact" class="btn btn-default navbar-btn">Edit Contact</button></li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Groups <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
@@ -104,6 +105,13 @@
                 });
                 $.post("/contact/delete", data, function(data, status) {
                     window.location.reload();
+                });
+            });
+
+            $('#edit_contact').click(function(){
+                var item = {'itemId' : $(":checked")[0].value};
+                $.post("/contact/contact_edit_page", item, function(data) {
+                    $( "body" ).html( data );
                 });
             });
         </script>

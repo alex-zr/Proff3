@@ -82,4 +82,10 @@ public class ContactServiceImpl implements ContactService {
     public Optional<Group> findGroup(long id) {
         return groupRepository.findById(id);
     }
+
+    @Override
+    @Transactional(readOnly = true)
+    public Contact findById(long id) {
+        return contactRepository.findById(id);
+    }
 }

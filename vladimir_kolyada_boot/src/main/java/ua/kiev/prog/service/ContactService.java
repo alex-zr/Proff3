@@ -28,4 +28,6 @@ public interface ContactService {
     long count();
 
     Optional<Group> findGroup(long id);
+
+    Contact findById(long id);
 }
