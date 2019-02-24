@@ -29,7 +29,11 @@
         <module>misha_kaplan_web</module>
         <module>proff3_anton_kucherenko_web</module>
         <module>proff3_anton_kucherenko</module>
-    </modules>
+		<module>evhenii_timoshenko</module>
+		<module>evhenii_timoshenko_web</module>
+		<module>evhenii_timoshenko</module>
+		<module>evhenii_timoshenko_web</module>
+	</modules>
 
 	<properties>
 		<junit.version>4.12</junit.version>
