@@ -27,6 +27,7 @@ public class GetThread implements Runnable {
                 HttpURLConnection http = (HttpURLConnection) url.openConnection();
 
                 InputStream is = http.getInputStream();
+
                 try {
                     byte[] buf = requestBodyToArray(is);
                     String strBuf = new String(buf, StandardCharsets.UTF_8);

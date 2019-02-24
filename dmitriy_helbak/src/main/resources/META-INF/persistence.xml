@@ -4,7 +4,7 @@
              version="2.0">
     <persistence-unit name="JPAExample1">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
-        <class>dmitriy_helbak.myJPA.SimpleClient</class>
+        <class>myJPA.SimpleClient</class>
         <properties>
             <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
             <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/mydb"/>
@@ -19,8 +19,8 @@
 
     <persistence-unit name="JPAExample2">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
-        <class>ua.kiev.prog.jpa.sample2.Client</class>
-        <class>ua.kiev.prog.jpa.sample2.Group</class>
+        <class>myJPA.App</class>
+        <class>myJPA.App</class>
         <properties>
             <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
             <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/mydb"/>
