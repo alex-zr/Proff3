@@ -28,7 +28,7 @@ public class Main {
                     "root", "root");
             Statement stmt = connection.createStatement();
             ResultSet resultSet = stmt.executeQuery("SELECT id, name, group_id, email FROM Clients");
-            while(resultSet.next()) {
+            while (resultSet.next()) {
                 Client client = new Client(
                         resultSet.getLong(1),
                         resultSet.getString(2),
