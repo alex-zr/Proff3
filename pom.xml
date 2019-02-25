@@ -42,7 +42,8 @@
 		<module>proff3_anton_kucherenko_spring</module>
 		<module>paul_b_spring</module>
 		<module>dmitriy_helbak_bootm</module>
-	</modules>
+        <module>bohdan_shuba_boot</module>
+    </modules>
 
 	<properties>
 		<junit.version>4.12</junit.version>
