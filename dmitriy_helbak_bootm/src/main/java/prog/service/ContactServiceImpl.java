@@ -23,6 +23,7 @@ public class ContactServiceImpl implements ContactService {
     @Override
     @Transactional
     public void addContact(Contact contact) {
+
         contactRepository.save(contact);
     }
 
@@ -80,5 +81,12 @@ public class ContactServiceImpl implements ContactService {
     @Transactional(readOnly = true)
     public Optional<Group> findGroup(long id) {
         return groupRepository.findById(id);
+    }
+
+
+    @Override
+    @Transactional(readOnly = true)
+    public Contact findById(long id) {
+        return contactRepository.findById(id);
     }
 }

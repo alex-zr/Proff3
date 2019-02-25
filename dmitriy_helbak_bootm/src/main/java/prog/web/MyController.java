@@ -36,14 +36,11 @@ public class MyController {
         return "index";
     }
 
-    @RequestMapping("/contact_add_page")
-    public String contactAddPage(Model model) {
-        model.addAttribute("groups", contactService.findGroups());
-        return "contact_add_page";
-    }
+
 
     @RequestMapping("/group_add_page")
     public String groupAddPage() {
+
         return "group_add_page";
     }
 
@@ -84,6 +81,11 @@ public class MyController {
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
+    @RequestMapping("/contact_add_page")
+    public String contactAddPage(Model model) {
+        model.addAttribute("groups", contactService.findGroups());
+        return "contact_add_page";
+    }
     @RequestMapping(value = "/contact/add", method = RequestMethod.POST)
     public String contactAdd(@RequestParam(value = "group") long groupId,
                              @RequestParam String name,
@@ -105,6 +107,36 @@ public class MyController {
         contactService.addGroup(new Group(name));
         return "redirect:/";
     }
+
+    @RequestMapping(value = "/contact_edit_page", method = RequestMethod.POST)
+    public String contactEditPage(Model model, @RequestParam(value = "itemId", required = true) long contactId) {
+        model.addAttribute("contact", contactService.findById(contactId));
+        model.addAttribute("groups", contactService.findGroups());
+        return "contact_edit_page";
+//        return "group_add_page";
+    }
+
+    @RequestMapping(value = "/contact/edit", method = RequestMethod.POST)
+    public String contactEdit(@RequestParam(name = "userId") long userId,
+                              @RequestParam(name = "group") long groupId,
+                              @RequestParam String name,
+                              @RequestParam String surname,
+                              @RequestParam String phone,
+                              @RequestParam String email) {
+        Group group = (groupId != DEFAULT_GROUP_ID)
+                ? contactService.findGroup(groupId).orElse(new Group())
+                : null;
+        Contact contact = contactService.findById(userId);
+        contact.setGroup(group);
+        contact.setName(name);
+        contact.setSurname(surname);
+        contact.setPhone(phone);
+        contact.setEmail(email);
+        contactService.addContact(contact);
+        return "redirect:/";
+//   return "/";
+    }
+
 
     @ExceptionHandler(Exception.class)
     public String error() {
