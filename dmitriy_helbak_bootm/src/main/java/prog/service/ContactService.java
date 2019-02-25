@@ -1,6 +1,7 @@
 package prog.service;
 
 import org.springframework.data.domain.Pageable;
+import org.springframework.transaction.annotation.Transactional;
 import prog.domain.Contact;
 import prog.domain.Group;
 
@@ -28,4 +29,7 @@ public interface ContactService {
     long count();
 
     Optional<Group> findGroup(long id);
+
+    //    @Transactional(readOnly = true)
+    Contact findById(long id);
 }

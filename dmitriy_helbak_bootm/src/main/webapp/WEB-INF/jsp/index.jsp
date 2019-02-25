@@ -10,7 +10,8 @@
 
 <body>
 <div class="container">
-    <h3><img height="50" width="55" src="<c:url value="/static/logo.png"/>"/><a href="/">Contacts List</a></h3>
+    <h3><img height="50" width="55" src="<c:url value="/src/main/webapp/WEB-INF/static/logo.png"/>"/><a href="/">Contacts
+        List</a></h3>
 
     <nav class="navbar navbar-default">
         <div class="container-fluid">
@@ -26,6 +27,9 @@
                     <li>
                         <button type="button" id="delete_contact" class="btn btn-default navbar-btn">Delete Contact
                         </button>
+                    </li>
+                    <li>
+                        <button type="button" id="edit_contact" class="btn btn-default navbar-btn">Edit Contact</button>
                     </li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
@@ -112,6 +116,13 @@
         });
         $.post("/contact/delete", data, function (data, status) {
             window.location.reload();
+        });
+    });
+
+    $('#edit_contact').click(function () {
+        var item = {'itemId': $(":checked")[0].value};
+        $.post("/contact_edit_page", item, function (data) {
+            $("body").html(data);
         });
     });
 </script>
