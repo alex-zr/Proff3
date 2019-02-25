@@ -5,7 +5,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
 public class App {
-    public static void main( String[] args ) {
+    public static void main(String[] args) {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("JPAExample2");
         EntityManager em = emf.createEntityManager();
         Group group = null;

@@ -3,14 +3,14 @@ package ua.kiev.prog.domain;
 import javax.persistence.*;
 
 @Entity
-@Table(name="Contacts")
+@Table(name = "Contacts")
 public class Contact {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-    
+
     @ManyToOne
-    @JoinColumn(name="group_id")
+    @JoinColumn(name = "group_id")
     private Group group;
 
     private String name;
@@ -18,7 +18,8 @@ public class Contact {
     private String phone;
     private String email;
 
-    public Contact() {}
+    public Contact() {
+    }
 
     public Contact(Group group, String name, String surname, String phone, String email) {
         this.group = group;

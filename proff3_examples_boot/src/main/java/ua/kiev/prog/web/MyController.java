@@ -56,8 +56,7 @@ public class MyController {
     public String listGroup(
             @PathVariable(value = "id") long groupId,
             @RequestParam(required = false, defaultValue = "0") Integer page,
-            Model model)
-    {
+            Model model) {
         Group group = (groupId != DEFAULT_GROUP_ID)
                 ? contactService.findGroup(groupId).orElse(new Group())
                 : null;
@@ -90,13 +89,12 @@ public class MyController {
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    @RequestMapping(value="/contact/add", method = RequestMethod.POST)
+    @RequestMapping(value = "/contact/add", method = RequestMethod.POST)
     public String contactAdd(@RequestParam(value = "group") long groupId,
                              @RequestParam String name,
                              @RequestParam String surname,
                              @RequestParam String phone,
-                             @RequestParam String email)
-    {
+                             @RequestParam String email) {
         Group group = (groupId != DEFAULT_GROUP_ID)
                 ? contactService.findGroup(groupId).orElse(new Group())
                 : null;
@@ -107,7 +105,7 @@ public class MyController {
         return "redirect:/";
     }
 
-    @RequestMapping(value="/group/add", method = RequestMethod.POST)
+    @RequestMapping(value = "/group/add", method = RequestMethod.POST)
     public String groupAdd(@RequestParam String name) {
         contactService.addGroup(new Group(name));
         return "redirect:/";

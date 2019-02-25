@@ -42,19 +42,19 @@ public class ContactServiceImpl implements ContactService {
     }
 
     @Override
-    @Transactional(propagation = Propagation.NEVER, isolation = Isolation.READ_COMMITTED, readOnly=true)
+    @Transactional(propagation = Propagation.NEVER, isolation = Isolation.READ_COMMITTED, readOnly = true)
     public List<Group> findGroups() {
         return groupRepository.findAll();
     }
 
     @Override
-    @Transactional(readOnly=true)
+    @Transactional(readOnly = true)
     public List<Contact> findAll(Pageable pageable) {
         return contactRepository.findAll(pageable).getContent();
     }
 
     @Override
-    @Transactional(readOnly=true)
+    @Transactional(readOnly = true)
     public List<Contact> findByGroup(Group group, Pageable pageable) {
         return contactRepository.findByGroup(group, pageable);
     }
@@ -66,7 +66,7 @@ public class ContactServiceImpl implements ContactService {
     }
 
     @Override
-    @Transactional(readOnly=true)
+    @Transactional(readOnly = true)
     public List<Contact> findByPattern(String pattern, Pageable pageable) {
         return contactRepository.findByPattern(pattern, pageable);
     }
@@ -78,7 +78,7 @@ public class ContactServiceImpl implements ContactService {
     }
 
     @Override
-    @Transactional(readOnly=true)
+    @Transactional(readOnly = true)
     public Optional<Group> findGroup(long id) {
         return groupRepository.findById(id);
     }
