@@ -6,7 +6,7 @@ import javax.persistence.Persistence;
 import java.util.*;
 
 public class App {
-    public static void main( String[] args ) {
+    public static void main(String[] args) {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("JPAExample2");
         EntityManager em = emf.createEntityManager();
         try {
@@ -52,7 +52,7 @@ public class App {
             for (Client c : group1.getClients())
                 //System.out.println("Client :" + c + " from " + c.getGroup().getName());
 
-            group2 = em.find(Group.class, gid2);
+                group2 = em.find(Group.class, gid2);
             if (group2 == null) {
                 //System.out.println("Course #2 not found error!");
                 return;
@@ -60,8 +60,8 @@ public class App {
             for (Client c : group2.getClients())
                 //System.out.println("Client :" + c + " from " + c.getGroup().getName());
 
-            // #3
-            System.out.println("------------------ #3 ------------------");
+                // #3
+                System.out.println("------------------ #3 ------------------");
             em.clear();
 
             client = em.find(Client.class, 1L);

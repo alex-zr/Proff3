@@ -9,13 +9,12 @@
 <body>
 
 <%
-    Set<Long> allphotos= (Set) response.;
+    Set<Long> allphotos = (Set) response.;
 %>
 
 <c:forEach items="${a}" var="photo">
     ${photo.field1}
     ${photo.field2}
-    ${photo.field...}
     ${photo.fieldN}
     <br>
 </c:forEach>
