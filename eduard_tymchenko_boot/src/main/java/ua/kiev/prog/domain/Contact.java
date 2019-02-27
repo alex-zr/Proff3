@@ -17,7 +17,7 @@ public class Contact {
     private String surname;
     private String phone;
     private String email;
-
+//try commit
     public Contact() {}
 
     public Contact(Group group, String name, String surname, String phone, String email) {
