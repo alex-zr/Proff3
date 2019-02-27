@@ -40,6 +40,10 @@
                             </c:forEach>
                         </ul>
                     </li>
+                    <li>
+                        <button type="button" id="auto_user" class="btn btn-default navbar-btn">Login
+                        </button>
+                    </li>
                 </ul>
                 <form class="navbar-form navbar-left" role="search" action="/search" method="post">
                     <div class="form-group">
@@ -106,6 +110,9 @@
 
     $('#add_group').click(function () {
         window.location.href = '/group_add_page';
+    });
+    $('#auto_user').click(function () {
+        window.location.href = '/auto_user';
     });
 
     $('#delete_contact').click(function () {
