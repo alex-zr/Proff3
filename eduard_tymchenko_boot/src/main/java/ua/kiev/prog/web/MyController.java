@@ -35,6 +35,17 @@ public class MyController {
 
         return "index";
     }
+//team trial
+
+    @RequestMapping("/auto_user")
+    public String autoUserPage(Model model) {
+//        model.addAttribute("groups", contactService.findGroups());
+        return "auto_user_page";
+    }
+
+
+
+
 
     @RequestMapping("/contact_add_page")
     public String contactAddPage(Model model) {
