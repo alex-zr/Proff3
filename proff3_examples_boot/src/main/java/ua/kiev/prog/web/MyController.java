@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import ua.kiev.prog.domain.Contact;
 import ua.kiev.prog.domain.Group;
 import ua.kiev.prog.service.ContactService;
-import ua.kiev.prog.service.ContactServiceImpl;
 
 import java.util.List;
 
