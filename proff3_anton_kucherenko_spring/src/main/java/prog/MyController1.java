@@ -45,9 +45,6 @@ public class MyController1 {
             model.addAttribute("message", "Success");
 
 
-
-
-
         } else {
             model.addAttribute("message", "Failure");
         }
