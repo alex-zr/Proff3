@@ -46,7 +46,7 @@ public class MyController {
     }
 
     @RequestMapping(value = "/show_all_photos", method = RequestMethod.GET)
-    public String showAllPhotos(Model model){
+    public String showAllPhotos(Model model) {
 
         Set<Long> allPhotos = photos.keySet();
 
@@ -84,12 +84,12 @@ public class MyController {
         return new ResponseEntity<>(bytes, headers, HttpStatus.OK);
     }
 
-    private ResponseEntity<Set<Long>> getAllPhptosID(){
+    private ResponseEntity<Set<Long>> getAllPhptosID() {
 
         Set<Long> allPhotos = photos.keySet();
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.TEXT_HTML);
 
-        return new ResponseEntity<Set<Long>>(allPhotos, headers,HttpStatus.OK);
+        return new ResponseEntity<Set<Long>>(allPhotos, headers, HttpStatus.OK);
     }
 }

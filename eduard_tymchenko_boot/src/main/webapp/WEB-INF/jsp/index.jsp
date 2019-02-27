@@ -11,7 +11,7 @@
 <body>
 <div class="container">
     <h3><img height="50" width="55" src="<c:url value="/static/logo.png"/>"/><a href="/">Contacts List</a></h3>
-
+    <!-- Test Anton commit add something-->
     <nav class="navbar navbar-default">
         <div class="container-fluid">
             <!-- Collect the nav links, forms, and other content for toggling -->

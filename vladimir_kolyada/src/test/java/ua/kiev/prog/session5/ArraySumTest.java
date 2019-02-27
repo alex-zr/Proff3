@@ -31,7 +31,7 @@ public class ArraySumTest {
         assertEquals(0, actualResult);
     }
 
-    @Test (expected = NullPointerException.class)
+    @Test(expected = NullPointerException.class)
     public void testGetArraySumNull() {
         module.getArraySum(null);
     }

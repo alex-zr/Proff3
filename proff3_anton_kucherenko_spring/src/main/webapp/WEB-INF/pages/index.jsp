@@ -16,8 +16,8 @@
         <input type="submit"/>
     </form>
 
-    <form action="/show_all_photos"  method="GET">
-         <input type="submit" value="Show all photos"/>
+    <form action="/show_all_photos" method="GET">
+        <input type="submit" value="Show all photos"/>
     </form>
 </div>
 </body>

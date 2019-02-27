@@ -39,7 +39,7 @@ public class AnketaServlet extends HttpServlet {
 
         int num = (int) '"';
 
-        String res = name+", thank you for your answers.";
+        String res = name + ", thank you for your answers.";
         res += "<p> Below you can see the total answers statistics. </p>";
         res += "<p> Question 1: yes = " + results[QUESTION_1_YES] + ", no =  " + results[QUESTION_1_NO] + "</p>";
         res += "<p> Question 2: yes = " + results[QUESTION_2_YES] + ", no =  " + results[QUESTION_2_NO] + "</p>";
@@ -48,7 +48,7 @@ public class AnketaServlet extends HttpServlet {
             res += "<hr> " +
                     "<p> <h1>Java is the best choice Bro!!! </h1></p>" +
                     "<img src=" + (char) num + "https://media1.tenor.com/images/51248c5358a46490c4811f51acda5d56/tenor.gif?itemid=4718552" + (char) num + " alt= bro!!!>";
-        }else{
+        } else {
             res += "<hr> " +
                     "<p> <h1>What does it mean you don't like Java? </h1></p>" +
                     "<img src=" + (char) num + "http://img.1001mem.ru/posts_temp/17-03-31/3899726.jpg" + (char) num + " alt= no bro!!!>";
