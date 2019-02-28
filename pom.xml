@@ -19,6 +19,7 @@
 		<module>proff3_examples_spring</module>
 		<module>proff3_examples_boot</module>
 		<module>proff3_examples_rest</module>
+		<module>proff3_examples_security</module>
         <module>vladimir_kolyada</module>
 		<module>vladimir_kolyada_web</module>
 		<module>vladimir_kolyada_boot</module>
