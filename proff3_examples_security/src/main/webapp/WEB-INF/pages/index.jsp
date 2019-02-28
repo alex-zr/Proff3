@@ -11,8 +11,7 @@
 <body>
 <div class="container">
     <h3><img height="50" width="55" src="<c:url value="/static/logo.png"/>"/><a href="/">Contacts List</a></h3>
-    <!-- Test Anton commit add something-->
-    <!--Hrybanova-->
+
     <nav class="navbar navbar-default">
         <div class="container-fluid">
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -28,9 +27,6 @@
                         <button type="button" id="delete_contact" class="btn btn-default navbar-btn">Delete Contact
                         </button>
                     </li>
-                    <li>
-                        <button type="button" id="edit_contact" class="btn btn-default navbar-btn">Edit Contact</button>
-                    </li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                            aria-expanded="false">Groups <span class="caret"></span></a>
@@ -40,10 +36,6 @@
                                 <li><a href="/group/${group.id}">${group.name}</a></li>
                             </c:forEach>
                         </ul>
-                    </li>
-                    <li>
-                        <button type="button" id="auto_user" class="btn btn-default navbar-btn">Login
-                        </button>
                     </li>
                 </ul>
                 <form class="navbar-form navbar-left" role="search" action="/search" method="post">
@@ -90,7 +82,7 @@
         <ul class="pagination">
             <c:if test="${allPages ne null}">
                 <c:forEach var="i" begin="1" end="${allPages}">
-                    <li><a href="/?page=${i}"/></li>
+                    <li><a href="/?page=<c:out value="${i - 1}"/>"><c:out value="${i}"/></a></li>
                 </c:forEach>
             </c:if>
             <c:if test="${byGroupPages ne null}">
@@ -112,9 +104,6 @@
     $('#add_group').click(function () {
         window.location.href = '/group_add_page';
     });
-    $('#auto_user').click(function () {
-        window.location.href = '/auto_user';
-    });
 
     $('#delete_contact').click(function () {
         var data = {'toDelete[]': []};
@@ -124,16 +113,6 @@
         $.post("/contact/delete", data, function (data, status) {
             window.location.reload();
         });
-    });
-
-    $('#edit_contact').click(function () {
-        if ($(":checked").length > 0) {
-            var id_contact = {'idcontact': $(":checked").val()};
-            //$.post("/contact_edit_page",id_contact);
-            $.post("/contact_edit_page",id_contact,function(data) {
-               $("body").html(data);
-            });
-        }
     });
 </script>
 </body>
