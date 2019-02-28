@@ -6,32 +6,32 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 public class Packet {
-	private static 	Gson gson = new GsonBuilder().setPrettyPrinting().create();
-	String from;
-	private Message[] messages;
-	private UUID[] receivedMessages;
-	
-	public Packet(String from, Message[] messages, UUID[] receivedMessages) {
-		this.from = from;
-		this.messages = messages;
-		this.receivedMessages = receivedMessages;
-	}
+    private static Gson gson = new GsonBuilder().setPrettyPrinting().create();
+    String from;
+    private Message[] messages;
+    private UUID[] receivedMessages;
 
-	public Message[] getMessages() {
-		return messages;
-	}
+    public Packet(String from, Message[] messages, UUID[] receivedMessages) {
+        this.from = from;
+        this.messages = messages;
+        this.receivedMessages = receivedMessages;
+    }
 
-	public UUID[] getReceivedMessages() {
-		return receivedMessages;
-	}
+    public Message[] getMessages() {
+        return messages;
+    }
 
-	public String getFrom() {
-		return from;
-	}
-	
-	@Override
-	public String toString() {
-		return gson.toJson(this);
-	}
-	
+    public UUID[] getReceivedMessages() {
+        return receivedMessages;
+    }
+
+    public String getFrom() {
+        return from;
+    }
+
+    @Override
+    public String toString() {
+        return gson.toJson(this);
+    }
+
 }

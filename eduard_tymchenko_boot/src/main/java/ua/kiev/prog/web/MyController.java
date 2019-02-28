@@ -47,6 +47,11 @@ public class MyController {
         return "group_add_page";
     }
 
+    @RequestMapping("/auto_user")
+    public String userLogin() {
+        return "auto_user_page";
+    }
+
     @RequestMapping(value = "/contact_edit_page", method = RequestMethod.POST)
     public String contactEditPage(Model model, @RequestParam(value = "idcontact") long editUserId) {
         model.addAttribute("groups", contactService.findGroups());

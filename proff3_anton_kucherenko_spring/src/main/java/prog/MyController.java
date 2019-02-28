@@ -13,7 +13,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 
 @Controller
@@ -21,7 +24,7 @@ public class MyController {
 
     private Map<Long, byte[]> photos = new ConcurrentHashMap<>();
 
-    //@RequestMapping("/")
+    @RequestMapping("/")
     public String onIndex() {
         return "index";
     }
@@ -40,6 +43,16 @@ public class MyController {
         } catch (IOException e) {
             throw new PhotoErrorException();
         }
+    }
+
+    @RequestMapping(value = "/show_all_photos", method = RequestMethod.GET)
+    public String showAllPhotos(Model model) {
+
+        Set<Long> allPhotos = photos.keySet();
+
+        model.addAttribute("allphotos", allPhotos);
+
+        return "allphotos";
     }
 
     @RequestMapping("/photo/{photo_id}")
@@ -69,5 +82,14 @@ public class MyController {
         headers.setContentType(MediaType.IMAGE_PNG);
 
         return new ResponseEntity<>(bytes, headers, HttpStatus.OK);
+    }
+
+    private ResponseEntity<Set<Long>> getAllPhptosID() {
+
+        Set<Long> allPhotos = photos.keySet();
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.TEXT_HTML);
+
+        return new ResponseEntity<Set<Long>>(allPhotos, headers, HttpStatus.OK);
     }
 }

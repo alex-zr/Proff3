@@ -14,9 +14,9 @@ public class HelloServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         HttpSession session = request.getSession(false);
-        if (session != null){
+        if (session != null) {
             Object userId = session.getAttribute("userId");
-        }else{
+        } else {
             String nameParam = request.getParameter("login");
             String passParam = request.getParameter("password");
         }

@@ -11,7 +11,8 @@
 <body>
 <div class="container">
     <h3><img height="50" width="55" src="<c:url value="/static/logo.png"/>"/><a href="/">Contacts List</a></h3>
-
+    <!-- Test Anton commit add something-->
+    <!--Hrybanova-->
     <nav class="navbar navbar-default">
         <div class="container-fluid">
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -39,6 +40,10 @@
                                 <li><a href="/group/${group.id}">${group.name}</a></li>
                             </c:forEach>
                         </ul>
+                    </li>
+                    <li>
+                        <button type="button" id="auto_user" class="btn btn-default navbar-btn">Login
+                        </button>
                     </li>
                 </ul>
                 <form class="navbar-form navbar-left" role="search" action="/search" method="post">
@@ -106,6 +111,9 @@
 
     $('#add_group').click(function () {
         window.location.href = '/group_add_page';
+    });
+    $('#auto_user').click(function () {
+        window.location.href = '/auto_user';
     });
 
     $('#delete_contact').click(function () {

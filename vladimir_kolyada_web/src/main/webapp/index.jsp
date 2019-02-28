@@ -5,7 +5,7 @@
 <a href="serv">Servlet</a>
 <form action="hello" method="get" target="_self">
     <input type="text" name="login" value="Zurab"><br>
-    <input type="password" name="password" ><br>
+    <input type="password" name="password"><br>
     <input type="submit" value="Login"><br>
 </form>
 <%
@@ -14,12 +14,12 @@
 %>
 <br>
 <%=
-    1 + ++gl +global
+1 + ++gl + global
 %>
 <br>
 <%!
     private static String global = " GlobalString";
-    private  static int gl= 1;
+    private static int gl = 1;
 %>
 </body>
 </html>

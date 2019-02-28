@@ -23,6 +23,7 @@
         <module>vladimir_kolyada</module>
 		<module>vladimir_kolyada_web</module>
 		<module>vladimir_kolyada_boot</module>
+        <module>vladimir_kolyada_spring</module>
 		<module>misha_kaplan</module>
 		<module>mik_tarnavskiy</module>
 		<module>paul_b</module>

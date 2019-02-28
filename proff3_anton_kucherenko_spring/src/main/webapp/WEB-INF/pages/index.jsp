@@ -15,6 +15,10 @@
         Photo: <input type="file" name="photo">
         <input type="submit"/>
     </form>
+
+    <form action="/show_all_photos" method="GET">
+        <input type="submit" value="Show all photos"/>
+    </form>
 </div>
 </body>
 </html>

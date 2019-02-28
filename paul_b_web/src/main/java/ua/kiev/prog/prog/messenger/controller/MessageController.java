@@ -25,54 +25,54 @@ import ua.kiev.prog.prog.messenger.service.MessageService;
  */
 @WebServlet("/MessageController")
 public class MessageController extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-	
-	private static Gson gson = new GsonBuilder().setPrettyPrinting().create();
-	private static MessageService messageService = MessageService.getMessageService();
+    private static final long serialVersionUID = 1L;
 
-	/**
-	 * @see HttpServlet#HttpServlet()
-	 */
-	public MessageController() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
+    private static Gson gson = new GsonBuilder().setPrettyPrinting().create();
+    private static MessageService messageService = MessageService.getMessageService();
+
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public MessageController() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
 
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
 //		response.setContentType(MediaType.TEXT_HTML);
 //		String htmlString = "<h2>Hello from MessageController servlet</h2><br>";
 //		response.getWriter().append(htmlString);
 //		response.getWriter().append("Served at: ").append(request.getPathInfo());
-		
-		String login = (String) request.getAttribute("login");
-		messageService.deliver(login);
-		String jsonResponce = gson.toJson(messageService.deliver(login)).toString();
-		
-		response.getWriter().append(jsonResponce);
 
-	}
+        String login = (String) request.getAttribute("login");
+        messageService.deliver(login);
+        String jsonResponce = gson.toJson(messageService.deliver(login)).toString();
+
+        response.getWriter().append(jsonResponce);
+
+    }
 
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		
-		String requestData = request.getReader().lines().collect(Collectors.joining());
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
 
-		try {
-			Packet packet = gson.fromJson(requestData, Packet.class);
-			for (Message message : packet.getMessages()) {
-				messageService.receive(message);
-			}
-			
+        String requestData = request.getReader().lines().collect(Collectors.joining());
+
+        try {
+            Packet packet = gson.fromJson(requestData, Packet.class);
+            for (Message message : packet.getMessages()) {
+                messageService.receive(message);
+            }
+
 //			response.getWriter().append(message.toString());
-			
-			String jsonResponse = gson.toJson(messageService.deliver(packet.getFrom()));
-			response.getWriter().append(jsonResponse);
-		} catch (JsonSyntaxException e) {
-			response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
-		}
-	}
+
+            String jsonResponse = gson.toJson(messageService.deliver(packet.getFrom()));
+            response.getWriter().append(jsonResponse);
+        } catch (JsonSyntaxException e) {
+            response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+        }
+    }
 
 }

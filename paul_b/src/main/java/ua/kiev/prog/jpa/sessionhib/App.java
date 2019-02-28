@@ -31,29 +31,29 @@ public class App {
         m1();
     }
 
-	private static void m0() {
-		Scanner sc = new Scanner(System.in);
-		
+    private static void m0() {
+        Scanner sc = new Scanner(System.in);
+
         try {
             // create connection
             emf = Persistence.createEntityManagerFactory("JPAExample1");
             em = emf.createEntityManager();
             if (em == null) {
-				throw new SQLException();
-			}
+                throw new SQLException();
+            }
             SimpleClient simpleClient = em.find(SimpleClient.class, 1L);
             System.out.println(simpleClient);
         } catch (HibernateException ex) {
             ex.printStackTrace();
         } catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} finally {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } finally {
             em.close();
             emf.close();
         }
-	}
-    
+    }
+
     public static void m1() {
         try {
             // create connection
@@ -70,5 +70,5 @@ public class App {
             em.close();
             emf.close();
         }
-	}
+    }
 }
