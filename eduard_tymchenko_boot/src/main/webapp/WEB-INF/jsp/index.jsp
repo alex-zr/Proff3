@@ -41,10 +41,10 @@
                             </c:forEach>
                         </ul>
                     </li>
-                    <li>
-                        <button type="button" id="auto_user" class="btn btn-default navbar-btn">Login
-                        </button>
-                    </li>
+                    <%--<li>--%>
+                        <%--<button type="button" id="auto_user" class="btn btn-default navbar-btn">Login--%>
+                        <%--</button>--%>
+                    <%--</li>--%>
                 </ul>
                 <form class="navbar-form navbar-left" role="search" action="/search" method="post">
                     <div class="form-group">
@@ -52,6 +52,12 @@
                     </div>
                     <button type="submit" class="btn btn-default">Submit</button>
                 </form>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <button type="button" id="auto_user" class="btn btn-default navbar-btn">Login
+                        </button>
+                    </li>
+                </ul>
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
     </nav>
