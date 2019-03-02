@@ -10,7 +10,7 @@
 
 <body>
 <div class="container">
-    <h3><img height="50" width="55" src="<c:url value="/src/main/webapp/WEB-INF/static/logo.png"/>"/><a href="/">Contacts
+    <h3><img height="50" width="55" src="<c:url value="/WEB-INF/static/logo.png"/>"/><a href="/">Contacts
         List</a></h3>
 
     <nav class="navbar navbar-default">
