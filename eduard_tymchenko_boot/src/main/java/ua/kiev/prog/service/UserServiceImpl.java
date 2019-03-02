@@ -18,15 +18,28 @@ public class UserServiceImpl implements UserService {
     }
 
     public boolean login(String login, String password) throws UserException {
-        User probe = new User();
-        probe.setLogin(login);
-        Example<User> userExample = Example.of(probe);
-        Optional<User> userOptional = repository.findOne(userExample);
+        Optional<User> userOptional = getUser(login);
         User user = userOptional.orElseThrow(() -> new UserException("user with login " + login + " not found"));
         return user.getPass().equals(password);
     }
 
+    private Optional<User> getUser(String login) {
+        User probe = new User();
+        probe.setLogin(login);
+        Example<User> userExample = Example.of(probe);
+        return repository.findOne(userExample);
+    }
+
     public long registration(String login, String password) throws UserException {
-        return 0; // todo
+        if (login == null) {
+            throw new UserException("login is null");
+        }
+        Optional<User> userOptional = getUser(login);
+        if (userOptional.isPresent()) {
+            throw new UserException("User with login" + login + " is already registered");
+        }
+        User user = new User(login, password);
+        repository.save(user);
+        return user.getId();
     }
 }
