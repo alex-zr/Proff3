@@ -1,32 +1,34 @@
-package ua.kiev.prog;
+package ua.kiev.prog.web;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import ua.kiev.prog.domain.Contact;
+import ua.kiev.prog.domain.Group;
+import ua.kiev.prog.service.ContactService;
 
 import java.util.List;
 
 @Controller
+@AllArgsConstructor
 public class MyController {
     static final int DEFAULT_GROUP_ID = -1;
     static final int ITEMS_PER_PAGE = 6;
 
-    @Autowired
     private ContactService contactService;
 
     @RequestMapping("/")
     public String index(Model model, @RequestParam(required = false, defaultValue = "0") Integer page) {
-        if (page < 0) {
-            page = 0;
-        }
+        if (page < 0) page = 0;
 
         List<Contact> contacts = contactService
                 .findAll(new PageRequest(page, ITEMS_PER_PAGE, Sort.Direction.DESC, "id"));
@@ -54,7 +56,9 @@ public class MyController {
             @PathVariable(value = "id") long groupId,
             @RequestParam(required = false, defaultValue = "0") Integer page,
             Model model) {
-        Group group = (groupId != DEFAULT_GROUP_ID) ? contactService.findGroup(groupId) : null;
+        Group group = (groupId != DEFAULT_GROUP_ID)
+                ? contactService.findGroup(groupId).orElse(new Group())
+                : null;
         if (page < 0) page = 0;
 
         List<Contact> contacts = contactService
@@ -90,7 +94,9 @@ public class MyController {
                              @RequestParam String surname,
                              @RequestParam String phone,
                              @RequestParam String email) {
-        Group group = (groupId != DEFAULT_GROUP_ID) ? contactService.findGroup(groupId) : null;
+        Group group = (groupId != DEFAULT_GROUP_ID)
+                ? contactService.findGroup(groupId).orElse(new Group())
+                : null;
 
         Contact contact = new Contact(group, name, surname, phone, email);
         contactService.addContact(contact);
@@ -102,6 +108,11 @@ public class MyController {
     public String groupAdd(@RequestParam String name) {
         contactService.addGroup(new Group(name));
         return "redirect:/";
+    }
+
+    @ExceptionHandler(Exception.class)
+    public String error() {
+        return "error";
     }
 
     private long getPageCount() {

@@ -1,19 +1,18 @@
-package ua.kiev.prog;
+package ua.kiev.prog.domain;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
-
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 @Entity
 @Table(name = "Contacts")
-@Data
-@NoArgsConstructor
 public class Contact {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
     @ManyToOne
@@ -25,8 +24,8 @@ public class Contact {
     private String phone;
     private String email;
 
-
-//    public Contact() {}
+    public Contact() {
+    }
 
     public Contact(Group group, String name, String surname, String phone, String email) {
         this.group = group;
@@ -35,7 +34,7 @@ public class Contact {
         this.phone = phone;
         this.email = email;
     }
-/*
+
     public long getId() {
         return id;
     }
@@ -83,5 +82,4 @@ public class Contact {
     public void setGroup(Group group) {
         this.group = group;
     }
-*/
 }

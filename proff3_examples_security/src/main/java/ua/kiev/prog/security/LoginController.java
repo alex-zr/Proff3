@@ -8,18 +8,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@RestController
+@Controller
 public class LoginController {
-    @GetMapping("/user/{id}")
-    public CustomUser getUser(@PathVariable Long id) {
-        //
-        return new CustomUser();
-    }
-
-    @DeleteMapping("/user/1")
-    //
-    @PostMapping("/user/1")
-    //
 
     @RequestMapping("/login")
     public String loginPage() {
