@@ -45,6 +45,14 @@ private UserService userService;
         return "login";
     }
 
+    @RequestMapping(value ="/check_password", method = RequestMethod.POST)
+    public String checkPassword(Model model, @RequestParam String login, String password) {
+       if (userService.checkPassword(login, password)==true){
+        return "password_true";}
+
+        return "wrong_password";
+    }
+
     @RequestMapping("/index")
     public String index(Model model, @RequestParam(required = false, defaultValue = "0") Integer page) {
         if (page < 0) page = 0;
