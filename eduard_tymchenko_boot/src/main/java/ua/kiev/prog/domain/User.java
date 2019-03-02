@@ -12,7 +12,6 @@ public class User {
     private long id;
 
     @NotNull(message = "login may not be null")
-    @Column(unique = true)
     private String login;
 
     @NotNull(message = "pass may not be null")
