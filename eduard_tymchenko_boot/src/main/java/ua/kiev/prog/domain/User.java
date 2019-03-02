@@ -1,25 +1,22 @@
 package ua.kiev.prog.domain;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 @Entity
-@Table(name = "User")
+@Table(name = "User", uniqueConstraints = {@UniqueConstraint(columnNames = "login")})
 public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
+    @NotNull(message = "login may not be null")
+    @Column(unique = true)
     private String login;
+
+    @NotNull(message = "pass may not be null")
     private String pass;
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
 
     public User() {
     }
@@ -27,6 +24,14 @@ public class User {
     public User(String login, String pass) {
         this.login = login;
         this.pass = pass;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     public String getLogin() {
