@@ -23,6 +23,7 @@
 <script>
     $("#button_cancel").click(function () {
         window.location.href = '/';
+        // window.location.href = '/add_user';
     });
 </script>
 </body>
