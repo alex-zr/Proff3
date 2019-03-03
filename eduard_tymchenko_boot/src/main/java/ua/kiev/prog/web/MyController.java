@@ -53,9 +53,9 @@ private UserService userService;
 
     @RequestMapping(value = "/contact_add_page", method = RequestMethod.POST)
     public String contactAddPage(Model model, @RequestParam String login, String password) {
-        User user = new User(login,password);
-       long userId = userService.registration(user);
-       model addAttribute ("userId", userId);
+
+       long userId = userService.registration(login, password);
+       model.addAttribute ("userId", userId);
         return "index";
     }
 
