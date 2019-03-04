@@ -10,20 +10,12 @@ import org.springframework.data.repository.query.Param;
 import org.hibernate.*;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.criterion.Projections;
-//Антон, цей рядок мав написати ти, але без нього я не могла писати свій.
-
 
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
 
-    @Query("SELECT u FROM User u WHERE u.login = :login")
+    /*@Query("SELECT u FROM User u WHERE u.login = :login")
     User findOne(User user)
-
-
-
-
-
-
 
     public Long addUser(String login, String pass){
         SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
@@ -53,6 +45,6 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
         return  userId;
 
-    }
+    }*/
 
 }
