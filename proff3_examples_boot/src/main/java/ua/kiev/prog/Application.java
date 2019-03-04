@@ -23,7 +23,7 @@ public class Application implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments arg0) throws Exception {
-        Group group = new Group("Test");
+/*        Group group = new Group("Test");
         Contact contact;
 
         contactService.addGroup(group);
@@ -35,6 +35,6 @@ public class Application implements ApplicationRunner {
         for (int i = 0; i < 10; i++) {
             contact = new Contact(group, "Other" + i, "OtherSurname" + i, "7654321" + i, "user" + i + "@other.com");
             contactService.addContact(contact);
-        }
+        }*/
     }
 }

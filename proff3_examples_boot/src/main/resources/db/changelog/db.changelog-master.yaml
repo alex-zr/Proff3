@@ -1,0 +1,69 @@
+databaseChangeLog:
+#  - changeSet:
+#      id: 1
+#      author: marceloverdijk
+#      changes:
+#        - createTable:
+#            tableName: person
+#            columns:
+#              - column:
+#                  name: id
+#                  type: int
+#                  autoIncrement: true
+#                  constraints:
+#                    primaryKey: true
+#                    nullable: false
+#              - column:
+#                  name: first_name
+#                  type: varchar(255)
+#                  constraints:
+#                    nullable: false
+#              - column:
+#                  name: last_name
+#                  type: varchar(255)
+#                  constraints:
+#                    nullable: false
+  - changeSet:
+      id: 1
+      author: al1
+      changes:
+        - insert:
+            tableName: Groups
+            columns:
+              - column:
+                  name: id
+                  value: 1
+              - column:
+                  name: name
+                  value: Test
+        - insert:
+            tableName: Contacts
+            columns:
+              - column:
+                  name: name
+                  value: Name1
+              - column:
+                  name: surname
+                  value: Surname1
+              - column:
+                  name: phone
+                  value: 1234567
+              - column:
+                  name: email
+                  value: user1@test.com
+        - insert:
+            tableName: Contacts
+            columns:
+              - column:
+                  name: name
+                  value: Name2
+              - column:
+                  name: surname
+                  value: Surname2
+              - column:
+                  name: phone
+                  value: 1234567
+              - column:
+                  name: email
+                  value: user2@test.com
+
