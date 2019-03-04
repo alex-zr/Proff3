@@ -25,4 +25,9 @@ public class LoginController {
     public String adminPage() {
         return "admin";
     }
+
+    @RequestMapping("/unauthorized")
+    public String unauthorized() {
+        return "unauthorized";
+    }
 }

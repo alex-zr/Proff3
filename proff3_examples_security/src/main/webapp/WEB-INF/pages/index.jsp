@@ -43,6 +43,7 @@
                         <input type="text" class="form-control" name="pattern" placeholder="Search">
                     </div>
                     <button type="submit" class="btn btn-default">Submit</button>
+                    <button id="logout" type="button" class="btn btn-default">Logout</button>
                 </form>
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
@@ -99,6 +100,10 @@
 
     $('#add_contact').click(function () {
         window.location.href = '/contact_add_page';
+    });
+
+    $('#logout').click(function () {
+        window.location.href = '/logout';
     });
 
     $('#add_group').click(function () {
