@@ -46,6 +46,7 @@
 		<module>paul_b_spring</module>
 		<module>dmitriy_helbak_bootm</module>
         <module>bohdan_shuba_boot</module>
+		<module>iryna_hrybanova_userLogin</module>
     </modules>
 
 	<properties>

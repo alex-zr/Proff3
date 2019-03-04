@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import ua.kiev.prog.domain.Contact;
 import ua.kiev.prog.domain.Group;
 import ua.kiev.prog.service.ContactService;
-
+import ua.kiev.prog.service.UserService;
 import java.util.List;
 
 @Controller
