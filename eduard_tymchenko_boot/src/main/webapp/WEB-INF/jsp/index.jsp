@@ -1,5 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page isELIgnored="false" %>
 <html>
 <head>
     <title>Prog.kiev.ua</title>
@@ -13,6 +14,7 @@
     <h3><img height="50" width="55" src="<c:url value="/static/logo.png"/>"/><a href="/">Contacts List</a></h3>
     <!-- Test Anton commit add something-->
     <!--Hrybanova-->
+
     <nav class="navbar navbar-default">
         <div class="container-fluid">
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -61,7 +63,16 @@
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
     </nav>
+    <%--<div>--%>
 
+        <%--<ul class="nav navbar-nav navbar-right">--%>
+            <%--<li>--%>
+                <%--<p>${log}</p>--%>
+                <%--<button type="button" id="logout_user" class="btn btn-default navbar-btn">Logout--%>
+                <%--</button>--%>
+            <%--</li>--%>
+        <%--</ul>--%>
+    <%--</div>--%>
     <table class="table table-striped">
         <thead>
         <tr>

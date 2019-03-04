@@ -9,12 +9,14 @@ import org.springframework.context.ConfigurableApplicationContext;
 import ua.kiev.prog.domain.Contact;
 import ua.kiev.prog.domain.Group;
 import ua.kiev.prog.service.ContactServiceImpl;
+import ua.kiev.prog.service.UserService;
 
 @SpringBootApplication
 @AllArgsConstructor
 public class Application implements ApplicationRunner {
 
     private ContactServiceImpl contactService;
+    private UserService userService;
 
     public static void main(String[] args) {
         ConfigurableApplicationContext context = SpringApplication.run(Application.class, args);
@@ -36,5 +38,7 @@ public class Application implements ApplicationRunner {
             contact = new Contact(group, "Other" + i, "OtherSurname" + i, "7654321" + i, "user" + i + "@other.com");
             contactService.addContact(contact);
         }
+//        TODO user default
+        userService.registration("user","user");
     }
 }
