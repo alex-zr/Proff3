@@ -44,7 +44,7 @@ private UserService userService;
     }
 
     @RequestMapping("/add_user")
-    public String autoUserPage(Model model) {
+    public String addUserPage(Model model) {
 //        model.addAttribute("groups", contactService.findGroups());
         return "add_user_page";
     }
