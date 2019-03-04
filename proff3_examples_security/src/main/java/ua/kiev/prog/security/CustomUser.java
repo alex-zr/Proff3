@@ -1,12 +1,9 @@
 package ua.kiev.prog.security;
 
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
+@Table(name = "users")
 public class CustomUser {
     @Id
     @GeneratedValue
