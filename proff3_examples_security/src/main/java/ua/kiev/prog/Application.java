@@ -27,7 +27,7 @@ public class Application implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments arg0) throws Exception {
-        userService.addUser(new CustomUser("admin", "$2a$10$r.5J2XUUlUP.5jTd7mEnwu12YTPRg5WPQyYmVxUjVHlECWCw7jM2S", UserRole.ADMIN));
+/*        userService.addUser(new CustomUser("admin", "$2a$10$r.5J2XUUlUP.5jTd7mEnwu12YTPRg5WPQyYmVxUjVHlECWCw7jM2S", UserRole.ADMIN));
         userService.addUser(new CustomUser("user", "$2a$10$upMAmRAn7lsbW5GBjFvjC.lC5RVdl9ubF9BHWOsApksIlp//8VgkS", UserRole.USER));
 
         Group group = new Group("Test");
@@ -42,6 +42,6 @@ public class Application implements ApplicationRunner {
         for (int i = 0; i < 10; i++) {
             contact = new Contact(group, "Other" + i, "OtherSurname" + i, "7654321" + i, "user" + i + "@other.com");
             contactService.addContact(contact);
-        }
+        }*/
     }
 }
