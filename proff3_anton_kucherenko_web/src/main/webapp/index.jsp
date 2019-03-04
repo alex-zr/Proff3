@@ -10,15 +10,12 @@
 <hr>
 
 <ul style="list-style-type: circle"> Tasks
-<li> <a href="serv">ServletExample</a></li>
-<li> <a href="hello.jsp">Hello Servlet Example</a></li>
-    <li> <a href="userNameAndDate.jsp">Date and Counter</a></li>
-<li> <a href="anketa.jsp">Anketa</a></li>
+    <li><a href="serv">ServletExample</a></li>
+    <li><a href="hello.jsp">Hello Servlet Example</a></li>
+    <li><a href="userNameAndDate.jsp">Date and Counter</a></li>
+    <li><a href="anketa.jsp">Anketa</a></li>
 
 </ul>
-
-
-
 
 
 </body>

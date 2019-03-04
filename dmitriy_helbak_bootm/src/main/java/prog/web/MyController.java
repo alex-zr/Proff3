@@ -10,19 +10,50 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import prog.domain.Contact;
 import prog.domain.Group;
+import prog.domain.User;
 import prog.service.ContactService;
+import prog.service.UserService;
 
 import java.util.List;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 @Controller
 @AllArgsConstructor
 public class MyController {
     static final int DEFAULT_GROUP_ID = -1;
     static final int ITEMS_PER_PAGE = 6;
-
+//private Map<String, String > map = new ConcurrentHashMap<>();
     private ContactService contactService;
+private UserService userService;
 
     @RequestMapping("/")
+    public String loginControll() {
+        return "login";
+    }
+    @RequestMapping("/new_user")
+    public String newUser() {
+        return "authorisation_result";
+    }
+
+    @RequestMapping(value = "/add_user", method = RequestMethod.POST)
+    public String newUser(Model model, @RequestParam String login, String password) {
+        User user = new User(login,password);
+        userService.addUser(user);
+//        String result = "Hello  "+login;
+//        model.addAttribute("result", result);
+        return "login";
+    }
+
+    @RequestMapping(value ="/check_password", method = RequestMethod.POST)
+    public String checkPassword(Model model, @RequestParam String login, String password) {
+       if (userService.checkPassword(login, password)==true){
+        return "password_true";}
+
+        return "wrong_password";
+    }
+
+    @RequestMapping("/index")
     public String index(Model model, @RequestParam(required = false, defaultValue = "0") Integer page) {
         if (page < 0) page = 0;
 

@@ -28,7 +28,7 @@ public class App {
             emf = Persistence.createEntityManagerFactory("JPAExample1");
             em = emf.createEntityManager();
             for (int i = 1; i < 6; i++) {
-                SimpleClient simpleClient = em.find(SimpleClient.class, (long)i);
+                SimpleClient simpleClient = em.find(SimpleClient.class, (long) i);
                 System.out.println(simpleClient);
             }
             SimpleClient toRename = em.find(SimpleClient.class, 3L);

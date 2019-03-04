@@ -19,7 +19,7 @@ import java.util.List;
 public class MyController {
     static final int DEFAULT_GROUP_ID = -1;
     static final int ITEMS_PER_PAGE = 6;
-
+private UserService userService;
     private ContactService contactService;
 
     @RequestMapping("/")
@@ -35,16 +35,43 @@ public class MyController {
 
         return "index";
     }
+//team trial
 
-    @RequestMapping("/contact_add_page")
-    public String contactAddPage(Model model) {
-        model.addAttribute("groups", contactService.findGroups());
-        return "contact_add_page";
+    @RequestMapping("/auto_user")
+    public String autoUserPage(Model model) {
+//        model.addAttribute("groups", contactService.findGroups());
+        return "auto_user_page";
+    }
+
+    @RequestMapping("/add_user")
+    public String addUserPage(Model model) {
+//        model.addAttribute("groups", contactService.findGroups());
+        return "add_user_page";
+    }
+
+
+
+    @RequestMapping(value = "/contact_add_page", method = RequestMethod.POST)
+    public String contactAddPage(Model model, @RequestParam String login, String password) {
+
+       long userId = userService.registration(login, password);
+       model.addAttribute ("userId", userId);
+        return "index";
     }
 
     @RequestMapping("/group_add_page")
     public String groupAddPage() {
         return "group_add_page";
+    }
+
+//    @RequestMapping("/auto_user")
+//    public String userLogin() {
+//        return "auto_user_page";
+//    }
+
+    @RequestMapping("/new_user_page")
+    public String newUserserLogin() {
+        return "new_user_page";
     }
 
     @RequestMapping(value = "/contact_edit_page", method = RequestMethod.POST)

@@ -25,8 +25,8 @@ public class App {
             // create connection
             emf = Persistence.createEntityManagerFactory("JPAExample1");
             em = emf.createEntityManager();
-            for(Long i = 1L; i<=5; i++) {
-                SimpleClient simpleClient = em.find(SimpleClient.class, (Long)i);
+            for (Long i = 1L; i <= 5; i++) {
+                SimpleClient simpleClient = em.find(SimpleClient.class, (Long) i);
                 System.out.println(simpleClient);
             }
         } catch (HibernateException ex) {
