@@ -10,7 +10,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import ua.kiev.prog.domain.Contact;
 import ua.kiev.prog.domain.Group;
+import ua.kiev.prog.exception.UserException;
 import ua.kiev.prog.service.ContactService;
+import ua.kiev.prog.service.UserService;
 
 import java.util.List;
 
@@ -19,7 +21,7 @@ import java.util.List;
 public class MyController {
     static final int DEFAULT_GROUP_ID = -1;
     static final int ITEMS_PER_PAGE = 6;
-private UserService userService;
+    private UserService userService;
     private ContactService contactService;
 
     @RequestMapping("/")
@@ -35,28 +37,42 @@ private UserService userService;
 
         return "index";
     }
-//team trial
 
     @RequestMapping("/auto_user")
     public String autoUserPage(Model model) {
-//        model.addAttribute("groups", contactService.findGroups());
+        model.addAttribute("no_name", "none");
+        model.addAttribute("no_pass", "none");
+        model.addAttribute("ok_login", "none");
         return "auto_user_page";
     }
 
-    @RequestMapping("/add_user")
-    public String autoUserPage(Model model) {
-//        model.addAttribute("groups", contactService.findGroups());
-        return "add_user_page";
+    @RequestMapping(value = "/login/user", method = RequestMethod.POST)
+    public String autoUserLogin(Model model, @RequestParam  String login,
+                                  @RequestParam String pass) {
+        try {
+            if (userService.login(login, pass)) {
+                model.addAttribute("no_name", "none");
+                model.addAttribute("no_pass", "none");
+                model.addAttribute("ok_login", "block");
+                model.addAttribute("login", login);
+            }else {
+                model.addAttribute("no_name", "none");
+                model.addAttribute("no_pass", "block");
+                model.addAttribute("ok_login", "none");
+            }
+        } catch (UserException e){
+            model.addAttribute("no_name", "block");
+            model.addAttribute("no_pass", "none");
+            model.addAttribute("ok_login", "none");
+            model.addAttribute("login", login);
+        }
+        return "auto_user_page";
     }
 
-
-
-    @RequestMapping(value = "/contact_add_page", method = RequestMethod.POST)
-    public String contactAddPage(Model model, @RequestParam String login, String password) {
-
-       long userId = userService.registration(login, password);
-       model.addAttribute ("userId", userId);
-        return "index";
+    @RequestMapping("/contact_add_page")
+    public String contactAddPage(Model model) {
+        model.addAttribute("groups", contactService.findGroups());
+        return "contact_add_page";
     }
 
     @RequestMapping("/group_add_page")
@@ -64,13 +80,26 @@ private UserService userService;
         return "group_add_page";
     }
 
-//    @RequestMapping("/auto_user")
-//    public String userLogin() {
-//        return "auto_user_page";
-//    }
-
     @RequestMapping("/new_user_page")
-    public String newUserserLogin() {
+    public String newUserserLogin(Model model) {
+        model.addAttribute("exists", "none");
+        model.addAttribute("ok_add", "none");
+        return "new_user_page";
+    }
+
+    @RequestMapping(value = "/new/user", method = RequestMethod.POST)
+    public String newUserAdd(Model model, @RequestParam String login, @RequestParam String pass) {
+        try {
+            if (userService.registration(login,pass) > 0){
+                model.addAttribute("exists", "none");
+                model.addAttribute("ok_add", "block");
+                model.addAttribute("login", login);
+            }
+
+        }catch (UserException e){
+            model.addAttribute("exists", "block");
+            model.addAttribute("ok_add", "none");
+        }
         return "new_user_page";
     }
 
@@ -135,11 +164,11 @@ private UserService userService;
 
     @RequestMapping(value = "/contact/edit", method = RequestMethod.POST)
     public String contactEdit(@RequestParam(value = "group") long groupId,
-                              @RequestParam (value = "userId") long userId,
-                             @RequestParam String name,
-                             @RequestParam String surname,
-                             @RequestParam String phone,
-                             @RequestParam String email) {
+                              @RequestParam(value = "userId") long userId,
+                              @RequestParam String name,
+                              @RequestParam String surname,
+                              @RequestParam String phone,
+                              @RequestParam String email) {
         Group group = (groupId != DEFAULT_GROUP_ID)
                 ? contactService.findGroup(groupId).orElse(new Group())
                 : null;
