@@ -20,6 +20,9 @@
         <input type="submit" class="btn btn-primary" value="Add User" id="add_user">
         <input type="button" class="btn btn-primary" value="Cancel" id="button_cancel">
     </form>
+    <div class="alert alert-danger" role="alert" style="display: ${no_connect};">
+        <strong>Error connect to data base!</strong> User did not add.
+    </div>
     <div class="alert alert-warning" role="alert" style="display: ${exists};">
         <strong> User with this name is exist!</strong>
     </div>

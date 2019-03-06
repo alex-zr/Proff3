@@ -84,16 +84,21 @@ public class MyController {
     public String newUserserLogin(Model model) {
         model.addAttribute("exists", "none");
         model.addAttribute("ok_add", "none");
+        model.addAttribute("no_connect", "none");
         return "new_user_page";
     }
 
     @RequestMapping(value = "/new/user", method = RequestMethod.POST)
     public String newUserAdd(Model model, @RequestParam String login, @RequestParam String pass) {
         try {
-            if (userService.registration(login,pass) > 0){
+            if ((Long) userService.registration(login,pass) != null){
                 model.addAttribute("exists", "none");
                 model.addAttribute("ok_add", "block");
                 model.addAttribute("login", login);
+            } else {
+                model.addAttribute("exists", "none");
+                model.addAttribute("ok_add", "none");
+                model.addAttribute("no_connect", "block");
             }
 
         }catch (UserException e){
