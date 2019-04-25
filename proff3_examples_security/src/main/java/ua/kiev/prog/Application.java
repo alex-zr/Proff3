@@ -13,6 +13,11 @@ import ua.kiev.prog.security.UserRole;
 import ua.kiev.prog.security.UserService;
 import ua.kiev.prog.service.ContactServiceImpl;
 
+/*
+    Задания на безопасность:
+
+    1Добавить функцию логаут
+ */
 @SpringBootApplication
 @AllArgsConstructor
 public class Application implements ApplicationRunner {

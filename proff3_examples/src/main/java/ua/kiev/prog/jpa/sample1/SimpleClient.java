@@ -12,7 +12,7 @@ import javax.persistence.Transient;
 @Table(name = "clients")
 public class SimpleClient {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
 

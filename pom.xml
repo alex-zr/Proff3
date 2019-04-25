@@ -2,11 +2,11 @@
 <project>
 	<modelVersion>4.0.0</modelVersion>
 
-	<parent>
+<!--	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>2.1.0.RELEASE</version>
-	</parent>
+	</parent>-->
 
     <groupId>proff</groupId>
     <artifactId>proff3</artifactId>
@@ -23,7 +23,7 @@
         <module>vladimir_kolyada</module>
 		<module>vladimir_kolyada_web</module>
 		<module>vladimir_kolyada_boot</module>
-        <module>vladimir_kolyada_spring</module>
+        <!--<module>vladimir_kolyada_spring</module>-->
 		<module>misha_kaplan</module>
 		<module>mik_tarnavskiy</module>
 		<module>paul_b</module>
@@ -53,6 +53,7 @@
 		<junit.version>4.12</junit.version>
 		<maven-compiler-plugin.version>3.0</maven-compiler-plugin.version>
 		<jdk.version>1.8</jdk.version>
+		<spring.boot.version>2.1.0.RELEASE</spring.boot.version>
 		<log4j.version>1.2.17</log4j.version>
 		<slf4j.version>1.7.2</slf4j.version>
 		<mysql.connector.version>5.1.46</mysql.connector.version>
@@ -145,6 +146,43 @@
 				<groupId>org.springframework</groupId>
 				<artifactId>spring-context</artifactId>
 				<version>5.1.2.RELEASE</version>
+			</dependency>
+
+			<!-- Import dependency management from Spring Boot -->
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-dependencies</artifactId>
+				<version>${spring.boot.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-starter-web</artifactId>
+				<version>${spring.boot.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-starter-data-jpa</artifactId>
+				<version>${spring.boot.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-starter-tomcat</artifactId>
+				<version>${spring.boot.version}</version>
+				<scope>compile</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.tomcat.embed</groupId>
+				<artifactId>tomcat-embed-jasper</artifactId>
+			</dependency>
+			<!-- Test -->
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-starter-test</artifactId>
+				<scope>test</scope>
 			</dependency>
 
 			<!-- https://mvnrepository.com/artifact/javax.ws.rs/javax.ws.rs-api -->
